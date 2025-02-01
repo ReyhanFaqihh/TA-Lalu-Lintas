@@ -15,8 +15,8 @@
 # Output files from R CMD build
 /*.tar.gz
 /dataset-mentah
-/dataset-cnn
-/dataset-yolo
+/dataset_cnn
+/dataset_yolo
 
 # Output files from R CMD check
 /*.Rcheck/
