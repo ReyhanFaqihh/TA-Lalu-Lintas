@@ -14,6 +14,7 @@
 
 # Output files from R CMD build
 /*.tar.gz
+/dataset-mentah
 
 # Output files from R CMD check
 /*.Rcheck/
