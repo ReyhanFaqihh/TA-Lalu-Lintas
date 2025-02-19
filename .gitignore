@@ -17,6 +17,7 @@
 /dataset-mentah
 /dataset_cnn
 /dataset_yolo
+/split_dataset
 
 # Output files from R CMD check
 /*.Rcheck/
