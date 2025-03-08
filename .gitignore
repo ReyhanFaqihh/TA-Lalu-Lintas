@@ -18,12 +18,27 @@
 /dataset_cnn
 /dataset_yolo
 /split_dataset
+/runs
+/runs2
+/runs3
+/runs4
+/dataset_yolo2
+/runsFinal
+/split_dataset1
+/video
+/yolo11m.pt
+/yolo11n.pt
+/yolo11s.pt
+/yolo11x.pt
+/yolov8n.pt
+
 
 # Output files from R CMD check
 /*.Rcheck/
 
 # RStudio files
 .Rproj.user/
+
 
 # produced vignettes
 vignettes/*.html

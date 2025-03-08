@@ -1,0 +1,8 @@
+names:
+- Pengendara
+- Helm
+nc: 2
+path: D:/Tim Lalu Lintas/TA-Lalu-Lintas/split_dataset1
+test: test/images
+train: cross_val/fold_2/train/images
+val: cross_val/fold_2/val/images

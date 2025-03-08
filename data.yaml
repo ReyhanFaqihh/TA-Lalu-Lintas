@@ -1,0 +1,6 @@
+path: D:\Tim Lalu Lintas\TA-Lalu-Lintas\split_dataset
+test: test/images
+train: train/images
+val : val/iamges
+nc: 2
+names: ['Pengendara','Helm']
