@@ -31,6 +31,8 @@
 /yolo11s.pt
 /yolo11x.pt
 /yolov8n.pt
+/dataset_cnn_split
+/dataset_cnn_preprocessed
 
 
 # Output files from R CMD check
