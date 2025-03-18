@@ -33,6 +33,13 @@
 /yolov8n.pt
 /dataset_cnn_split
 /dataset_cnn_preprocessed
+/best_model.h5
+/best_model.pth
+/CustomEfficientNet1_1.h5
+/CustomMobileNetv2.h5
+/CustomResnet18.h5
+/CustomShuffleNetV2.h5
+/CustomSqueezNet1_1.h5
 
 
 # Output files from R CMD check
