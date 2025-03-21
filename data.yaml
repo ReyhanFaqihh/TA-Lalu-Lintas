@@ -1,6 +1,5 @@
-path: D:\Tim Lalu Lintas\TA-Lalu-Lintas\split_dataset
+path: D:\TA_Lalu Lintas\TA-Lalu-Lintas\split_dataset1
 test: test/images
 train: train/images
-val : val/iamges
 nc: 2
 names: ['Pengendara','Helm']
