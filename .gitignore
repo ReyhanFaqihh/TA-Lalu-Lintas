@@ -45,6 +45,9 @@
 /best_model_resnet18.pth
 /best_model_shufflenet.pth
 /best_model_squeezenet.pth
+/pelanggar
+/bestYolo11.pt
+/last.pt
 
 # Output files from R CMD check
 /*.Rcheck/
