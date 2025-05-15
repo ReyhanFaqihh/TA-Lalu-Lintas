@@ -15,6 +15,10 @@
 # Output files from R CMD build
 /*.tar.gz
 /dataset-mentah
+/dataset_cnn_gabungan
+/env-cnn
+/venv
+/dataset_cnn_kfold
 /dataset_cnn
 /dataset_yolo
 /split_dataset
