@@ -47,7 +47,8 @@ HEAD_CROP_RATIO = 0.4  # Bagian atas bounding box untuk crop kepala
 gst_str = (
     "libcamerasrc ! "
     "video/x-raw, width=640, height=480, framerate=30/1 ! "
-    "videoconvert ! appsink"
+    "videoconvert ! "
+    "appsink"
 )   
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
