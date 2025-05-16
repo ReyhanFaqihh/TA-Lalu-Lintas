@@ -9,6 +9,14 @@ from PIL import Image
 import os
 import numpy as np
 import datetime
+from torchvision.models import efficientnet_b0, EfficientNet_B0_Weights
+
+def load_cnn_model():
+    model = efficientnet_b0(weights=None)  # Tidak menggunakan pretrained weights
+    model.classifier[1] = nn.Linear(model.classifier[1].in_features, 2)
+    model.load_state_dict(torch.load(CNN_MODEL_PATH, map_location=device))
+    return model.to(device).eval()
+
 
 # ==== Preprocessing Functions ====
 def remove_noise(image):
@@ -49,7 +57,7 @@ yolo_model = YOLO(YOLO_MODEL_PATH).to(device)
 
 # ==== Load EfficientNetB0 Model ====
 def load_cnn_model():
-    model = models.efficientnet_b0(pretrained=False)
+    model = efficientnet_b0(weights=EfficientNet_B0_Weights.DEFAULT)
     model.classifier[1] = nn.Linear(model.classifier[1].in_features, 2)
     model.load_state_dict(torch.load(CNN_MODEL_PATH, map_location=device))
     return model.to(device).eval()
@@ -74,6 +82,7 @@ HELMET_LABELS = ["Helm", "Head"]  # 0 = pakai, 1 = tidak pakai
 
 # ==== Video Processing ====
 cap = cv2.VideoCapture(gst_str, cv2.CAP_GSTREAMER)
+# cap = cv2.VideoCapture(VIDEO_PATH)
 
 while cap.isOpened():
     ret, frame = cap.read()
