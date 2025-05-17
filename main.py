@@ -37,6 +37,9 @@ def sharpen_image(image):
     return cv2.filter2D(image, -1, kernel)
 
 # ==== Configuration ====
+
+os.system("libcamera-still --shutter 10000 --gain 8 --flicker 50hz -t 1000 --nopreview -o /dev/null")
+
 YOLO_MODEL_PATH = "bestYolo11.pt"
 CNN_MODEL_PATH = "best_model_efficientnet.pth"
 VIDEO_PATH = "C:\\TA-Lalu-Lintas\\dataset-mentah\\vidios\\WIN_20250507_15_05_58_Pro.mp4"
@@ -46,10 +49,11 @@ CNN_CONFIDENCE_THRESHOLD = 0.8
 HEAD_CROP_RATIO = 0.4  # Bagian atas bounding box untuk crop kepala
 gst_str = (
     "libcamerasrc ! "
-    "video/x-raw, width=640, height=480, framerate=30/1 ! "
+    "video/x-raw, width=640, height=480, framerate=30/1, format=NV12 ! "
     "videoconvert ! "
+    "video/x-raw, format=BGR ! " 
     "appsink"
-)   
+)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -84,11 +88,19 @@ HELMET_LABELS = ["Helm", "Head"]  # 0 = pakai, 1 = tidak pakai
 # ==== Video Processing ====
 cap = cv2.VideoCapture(gst_str, cv2.CAP_GSTREAMER)
 # cap = cv2.VideoCapture(VIDEO_PATH)
+# cap = cv2.VideoCapture(0)
+
+if not cap.isOpened():
+    print("Gagal membuka VideoCapture dari pipelineGstreamer")
+    exit()
+else:
+    print("Berhasil diBuka")
 
 while cap.isOpened():
     ret, frame = cap.read()
-    if not ret:
-        break
+    if not ret or frame is None:
+        print("Gagal Membaca Kamera")
+	#continue
 
     # frame = cv2.flip(frame, 0)  # Flip frame horizontally
     # frame = cv2.flip(frame, 1)  # Flip frame horizontally
